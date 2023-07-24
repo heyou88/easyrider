@@ -48,6 +48,26 @@ function App() {
         >
           Learn React
         </a> */}
+        <div>
+          <div className='speakers'>
+            <div className='speaker'>
+               <img src={avatar} className="speaker-avatar" alt="Avatar" />
+               <p>Abdul</p>
+            </div>
+            <div className='speaker'>
+               <img src={avatar} className="speaker-avatar" alt="Avatar" />
+               <p>Abdul</p>
+            </div>
+            <div className='speaker'>
+               <img src={avatar} className="speaker-avatar" alt="Avatar" />
+               <p>Abdul</p>
+            </div>
+            <div className='speaker'>
+               <img src={avatar} className="speaker-avatar" alt="Avatar" />
+               <p>Abdul</p>
+            </div>
+          </div>
+        </div>
         <div className='bottom'>
         <div className="mute" onClick={handleToggleMute}>
             {muted ? 'MUTE' : 'UNMUTE'}

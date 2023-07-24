@@ -24,6 +24,18 @@
   pointer-events: none;
 }
 
+.speakers{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20vh;
+}
+
+.speaker-avatar{
+  height: 7vmin;
+  width: 7vmin;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .tree {
     animation: App-logo-spin infinite 20s linear;
