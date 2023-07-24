@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import './App.css';
 import mute from './mute.png';
 import tree from './tree.png';
@@ -9,14 +9,23 @@ import avatar from './avatar.png';
 
 function App() {
   const soundURL = 'https://vocal-belekoy-a2bce4.netlify.app/chat.mp3';
+  const [muted, setMuted] = useState(true);
   useEffect(() => {
     // Play the sound automatically when the component mounts
     const audio = new Audio(soundURL);
-    audio.play();
+    if (!muted) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+
 
     // Optionally, you can also pause the sound when the component unmounts
     return () => audio.pause();
-  }, [soundURL]);
+  }, [muted, soundURL]);
+  const handleToggleMute = () => {
+    setMuted(!muted);
+  };
   return (
     <div className="App">
     <header className="App-header">
@@ -40,10 +49,10 @@ function App() {
           Learn React
         </a> */}
         <div className='bottom'>
-            <div className='mute'>
-              MUTE
-              <img src={mute} className="toggle-button" alt="mute" />
-            </div>
+        <div className="mute" onClick={handleToggleMute}>
+            {muted ? 'MUTE' : 'UNMUTE'}
+            <img src={mute} className="toggle-button" alt="mute" />
+          </div>
             <div>
               <button className='leave-button'>leave</button>
             </div>
