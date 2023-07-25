@@ -14,15 +14,16 @@ import speakers from './speakers.png';
 import soundOn from './soundon.png';
 import soundOff from './soundoff.png';
 import map from './map.png';
+import chatSound from './clubhouse.mp3';
 
 function App() {
-  const soundURL = 'https://vocal-belekoy-a2bce4.netlify.app/chat.mp3';
+  // const soundURL = {chat};
   const [sound, setSound] = useState(true);
   const [mute, setMute] = useState(true);
   const [leaveScreen, setLeaveScreen] = useState(false);
   useEffect(() => {
     // Play the sound automatically when the component mounts
-    const audio = new Audio(soundURL);
+    const audio = new Audio(chatSound);
     if (!sound) {
       audio.play();
     } else {
@@ -32,7 +33,7 @@ function App() {
 
     // Optionally, you can also pause the sound when the component unmounts
     return () => audio.pause();
-  }, [sound, soundURL]);
+  }, [sound, mute]);
   const handleToggleSound = () => {
     setSound(!sound);
   };
