@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import React, { useEffect,useState } from 'react';
+import MapHeader from './direction.js'
 import './App.css';
 import muteButton from './mute.png';
 import muteicon from './mute.svg';
@@ -39,25 +40,30 @@ function App() {
     setMute(!mute);
   };
   const handleLeave = () => {
-    setLeaveScreen(true);
+    setLeaveScreen(!leaveScreen);;
   };
   const handleBackToChat = () => {
     setLeaveScreen(false);
   };
-  if (leaveScreen) {
-    return <MapScreen onBackToChat={handleBackToChat} />;
-  }
+  // if (leaveScreen) {
+  //   return <MapScreen onBackToChat={handleBackToChat} />;
+  // }
   return (
-    <div className="App">
+    <div className= "App">
+      {
+        leaveScreen ?
+          <MapHeader onBackToChat={handleBackToChat} />
+        :
+
       <header className="App-header">
         <div className="tree-name-container">
-          <h3 className="tree-name">Tree Name</h3>
+          <h3 className="tree-name">Gossip Willow</h3>
           <img src={save} className="save" alt="Save" />
           <img src={share} className="share" alt="Share" />
           <img src={avatar} className="avatar" alt="Avatar" />
         </div>
 
-        <img src={tree} className="tree" alt="logo" />
+        <img src={leaveScreen ? map : tree} className={leaveScreen ?'map':"tree"} alt="logo" />
         <div className="speakers">
           <img
             src={sound ? soundOn : soundOff}
@@ -83,32 +89,14 @@ function App() {
             />
           </div>
           <div>
-            <button className="leave-button" onClick={handleLeave}>Go There</button>
+            <button className="leave-button" onClick={handleLeave}>{leaveScreen ? 'Back to Chat' : 'Go There'} </button>
           </div>
         </div>
       </header>
+
+      }
     </div>
   );
 }
 
 export default App;
-
-function MapScreen({ onBackToChat }) {
-  return (
-    <div className="map" >
-      <header className="App-header">
-      <button className="back-to-chat-button" onClick={onBackToChat}>
-        Back to Chat
-      </button>
-      <div className="map-image-container">
-        <img
-                src= {map}
-                className="map"
-                alt="map"
-              />
-      </div>
-      </header>
-      {/* Add content for the Map screen here */}
-    </div>
-  );
-}
