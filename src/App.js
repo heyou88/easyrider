@@ -12,11 +12,13 @@ import avatar from './avatar.png';
 import speakers from './speakers.png';
 import soundOn from './soundon.png';
 import soundOff from './soundoff.png';
+import map from './map.png';
 
 function App() {
   const soundURL = 'https://vocal-belekoy-a2bce4.netlify.app/chat.mp3';
   const [sound, setSound] = useState(true);
   const [mute, setMute] = useState(true);
+  const [leaveScreen, setLeaveScreen] = useState(false);
   useEffect(() => {
     // Play the sound automatically when the component mounts
     const audio = new Audio(soundURL);
@@ -36,6 +38,15 @@ function App() {
   const handleToggleMute = () => {
     setMute(!mute);
   };
+  const handleLeave = () => {
+    setLeaveScreen(true);
+  };
+  const handleBackToChat = () => {
+    setLeaveScreen(false);
+  };
+  if (leaveScreen) {
+    return <MapScreen onBackToChat={handleBackToChat} />;
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -72,7 +83,7 @@ function App() {
             />
           </div>
           <div>
-            <button className="leave-button">Leave</button>
+            <button className="leave-button" onClick={handleLeave}>Go There</button>
           </div>
         </div>
       </header>
@@ -81,8 +92,23 @@ function App() {
 }
 
 export default App;
-// function mute(){
-//   return(
-//     <img src={logo} className="App-logo" alt="logo" />
-//   )
-// }
+
+function MapScreen({ onBackToChat }) {
+  return (
+    <div className="map" >
+      <header className="App-header">
+      <button className="back-to-chat-button" onClick={onBackToChat}>
+        Back to Chat
+      </button>
+      <div className="map-image-container">
+        <img
+                src= {map}
+                className="map"
+                alt="map"
+              />
+      </div>
+      </header>
+      {/* Add content for the Map screen here */}
+    </div>
+  );
+}
