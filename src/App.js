@@ -15,6 +15,11 @@ import soundOn from './soundon.png';
 import soundOff from './soundoff.png';
 import map from './map.png';
 import chatSound from './clubhouse.mp3';
+import chatSound1 from './clubhouse1.mp3';
+import chatSound2 from './clubhouse2.mp3';
+const soundFiles = [
+  chatSound,chatSound1,chatSound2
+];
 
 function App() {
   // const soundURL = {chat};
@@ -23,7 +28,11 @@ function App() {
   const [leaveScreen, setLeaveScreen] = useState(false);
   useEffect(() => {
     // Play the sound automatically when the component mounts
-    const audio = new Audio(chatSound);
+    const getRandomSoundURL = () => {
+      const randomIndex = Math.floor(Math.random() * soundFiles.length);
+      return soundFiles[randomIndex];
+    };
+    const audio = new Audio(getRandomSoundURL());
     if (!sound) {
       audio.play();
     } else {
@@ -34,6 +43,7 @@ function App() {
     // Optionally, you can also pause the sound when the component unmounts
     return () => audio.pause();
   }, [sound, mute]);
+
   const handleToggleSound = () => {
     setSound(!sound);
   };
