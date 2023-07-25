@@ -1,3 +1,24 @@
+@media screen and (max-width: 768px) {
+  .App-header {
+    font-size: calc(8px + 2vmin);
+  }
+
+  .tree-name {
+    font-size: calc(12px + 2vmin);
+  }
+}
+
+/* For larger screens, increase the font size */
+@media screen and (min-width: 1200px) {
+  .App-header {
+    font-size: calc(12px + 2vmin);
+  }
+
+  .tree-name {
+    font-size: calc(16px + 2vmin);
+  }
+}
+
 .App {
   text-align: center;
 }
@@ -29,19 +50,33 @@
 .speakers{
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;;
+  justify-content: center;;
   margin-top: 10vh;
 }
 
 .sound-button{
-  height: 70px;
+  height: 60px;
 }
 .speaker-avatar { /* Adjust the size as needed */
-  height: 90px; /* Adjust the size as needed */
+  height: 60px; /* Adjust the size as needed */
 }
 
 .speaker-avatar {
   margin-left: 40px; /* Adjust the spacing as needed */
+}
+@media screen and (max-width: 768px) {
+  .speakers {
+    justify-content: space-between; /* Set the items to spread out on smaller screens */
+  }
+
+  .sound-button,
+  .speaker-avatar {
+    height: 40px; /* Reduce the size of the sound-button and speaker-avatar for smaller screens */
+  }
+
+  .speaker-avatar {
+    margin-left: 20px; /* Reduce the spacing between the sound-button and speaker-avatar for smaller screens */
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -75,7 +110,7 @@
 }
 .bottom{
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   margin-top:auto;
   padding: 20px 0;
@@ -84,7 +119,7 @@
 .mute {
   display: flex;
   align-items: center;
-  margin-right: 30px; /* Add spacing between the mute text and the toggle button */
+  margin-right: 50px; /* Add spacing between the mute text and the toggle button */
 }
 
 .mute-icon{
@@ -95,7 +130,7 @@
 
 .toggle-button {
    /* Increase the width of the toggle-button */
-  height: 60px; /* Adjust the width as needed */
+  height: 30px; /* Adjust the width as needed */
 }
 
 .leave-button {
@@ -106,6 +141,7 @@
   padding: 10px 30px;
   border-radius: 5px;
   cursor: pointer;
+  margin-left: 30px;
 }
 
 .leave-button:hover {
