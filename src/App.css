@@ -9,6 +9,7 @@
 }
 
 .tree-name {
+  color: black;
   margin-right: 20px; /* Adjust the spacing between the tree name and the icons */
 }
 
@@ -20,20 +21,27 @@
 }
 
 .tree {
-  height: 40vmin;
-  pointer-events: none;
+  max-width: 100%;
+  height: auto;
+  max-height: 60vh;
 }
 
 .speakers{
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 20vh;
+  align-items: flex-start;
+  justify-content: space-between;;
+  margin-top: 10vh;
 }
 
-.speaker-avatar{
-  height: 7vmin;
-  width: 7vmin;
+.sound-button{
+  height: 70px;
+}
+.speaker-avatar { /* Adjust the size as needed */
+  height: 90px; /* Adjust the size as needed */
+}
+
+.speaker-avatar {
+  margin-left: 40px; /* Adjust the spacing as needed */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -43,7 +51,7 @@
 }
 
 .App-header {
-  background-color: black;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -76,22 +84,34 @@
 .mute {
   display: flex;
   align-items: center;
-  margin-right: 20px; /* Add spacing between the mute text and the toggle button */
+  margin-right: 30px; /* Add spacing between the mute text and the toggle button */
+}
+
+.mute-icon{
+  width: 60px; /* Adjust the width as needed */
+  height: 60px; /* Adjust the height as needed */
+  margin-right: 10px;
 }
 
 .toggle-button {
-  width: 50px; /* Adjust the width as needed */
+   /* Increase the width of the toggle-button */
+  height: 60px; /* Adjust the width as needed */
 }
 
 .leave-button {
   background-color: #16f662;
+  width:max-content;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 30px;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .leave-button:hover {
   background-color: #16f662;
+}
+
+.bottom div {
+  margin-right: 20px; /* Adjust the spacing as needed */
 }
