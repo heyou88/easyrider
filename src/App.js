@@ -17,9 +17,12 @@ import map from './map.png';
 import chatSound from './clubhouse.mp3';
 import chatSound1 from './clubhouse1.mp3';
 import chatSound2 from './clubhouse2.mp3';
+
 const soundFiles = [
   chatSound,chatSound1,chatSound2
 ];
+const treeNames = ['Habibi and his friend','Panditji Corner','Cool Spot']
+const randomIndex = Math.floor(Math.random() * treeNames.length);
 
 function App() {
   // const soundURL = {chat};
@@ -42,7 +45,7 @@ function App() {
 
     // Optionally, you can also pause the sound when the component unmounts
     return () => audio.pause();
-  }, [sound, mute]);
+  }, [sound]);
 
   const handleToggleSound = () => {
     setSound(!sound);
@@ -68,7 +71,7 @@ function App() {
 
       <header className="App-header">
         <div className="tree-name-container">
-          <h3 className="tree-name">Gossip Willow</h3>
+          <h3 className="tree-name">{treeNames[randomIndex]}</h3>
           <img src={save} className="save" alt="Save" />
           <img src={share} className="share" alt="Share" />
           <img src={avatar} className="avatar" alt="Avatar" />
